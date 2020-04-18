@@ -29,6 +29,8 @@
 						<td><jsp:getProperty property="quantity" name="item"/></td>
 						<td>
 							<input type="submit" value="購入">
+							<input type="hidden" name="item_id" value="<%=item.getId() %>">
+							<input type="hidden" name="item_quantity"  value="<%= request.getAttribute("quantity")%>">
 						</td>
 					</tr>
 				</tbody>
