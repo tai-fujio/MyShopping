@@ -3,24 +3,24 @@ package shopping;
 import java.io.Serializable;
 
 public class HistoryBean implements Serializable {
-	private String orderId;
+	private String itemName;
 	private String userId;
 	private String itemId;
 	private int quantity;
 
 	public HistoryBean() {
-		this.orderId = "";
+		this.itemName = "";
 		this.userId = "";
 		this.itemId = "";
 		this.quantity = 0;
 	}
 
-	public String getOrderId() {
-		return orderId;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public String getUserId() {

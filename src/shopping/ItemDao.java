@@ -17,7 +17,7 @@ public class ItemDao {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
 			prepared = connection.prepareStatement(
-					"select history.user_id from history inner join user on history.user_id = ? inner join item on history.item_id = item.id;");
+					"select history.item_id,history.quantity,item.name from history inner join user on history.user_id = ? inner join item on history.item_id = item.id;");
 			prepared.setString(1, id);
 			result = prepared.executeQuery();
 
