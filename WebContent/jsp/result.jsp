@@ -6,9 +6,16 @@
 <meta charset="UTF-8">
 <link href="/MyShopping2/css/shopping.css" rel="stylesheet" type="text/css">
 
-<title>Insert title here</title>
+<title>My Shopping</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
+	<h1>購入結果</h1>
+	<p>ご購入ありがとうございます
+		<img src="/MyShopping2/image/thank_you.jpg" width="100" height="100"/>
+	</p>
+	<form action="./ShoppingServlet" method="post">
+		<input type="submit" value="戻る">
+	</form>
 </body>
 </html>
