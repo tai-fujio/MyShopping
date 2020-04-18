@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<jsp:useBean id="user" scope="session" class="shopping.LoginUserBean"/>
+<div align=right>
+	ようこそ<jsp:getProperty property="name" name="user">さん
+	<a href="/shopping/LoginServletShopping"></a>
+</div>
