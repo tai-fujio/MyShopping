@@ -42,8 +42,7 @@ public class BaughtListServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
-		String btn = request.getParameter("submit");
-		if ("購入履歴".equals(btn)) {
+		if (session.getAttribute("isLogged") == "true") {
 			Item item = new Item();
 			UserBean userbean = (UserBean) session.getAttribute("user");
 			ArrayList<HistoryBean> historybean = item.getHistoryData(userbean.getId());
