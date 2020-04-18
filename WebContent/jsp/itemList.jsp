@@ -27,6 +27,7 @@
 				<td><%= bean.getPrice() %></td>
 				<td><%= bean.getStock() %></td>
 				<td><%= bean.getQuantity() %></td>
+				<% if (bean.getQuantity() != 0) { %>
 				<td>
 					<select name="<%= bean.getId() %>list">
 						<%for(int i=0; i<=bean.getQuantity();i++) {%>
@@ -37,8 +38,11 @@
 				<td>
 					<input type="submit" value="購入" name="<%=bean.getId()%>submit">
 				</td>
+				<% }else{ %>
+				<td></td>
+				<td>売り切れ</td>
+				<% } %>
 			</tr>
-			<%} %>
 		</table>
 	</form>
 
