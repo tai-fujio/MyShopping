@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="/MyShopping2/css/shopping.css" rel="stylesheet" type="text/css">
+
 <title>Insert title here</title>
 </head>
 <body>
-
+	<jsp:include page="header.jsp"/>
 </body>
 </html>
