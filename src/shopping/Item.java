@@ -1,5 +1,5 @@
 package shopping;
 
-public class Test {
+public class Item {
 
 }
