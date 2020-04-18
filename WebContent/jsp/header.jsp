@@ -3,5 +3,6 @@
 <jsp:useBean id="user" scope="session" class="shopping.LoginUserBean"/>
 <div align=right>
 	ようこそ<jsp:getProperty property="name" name="user">さん
-	<a href="/shopping/LoginServletShopping"></a>
+	<a href="/shopping/LoginServletShopping">購入履歴</a>
+	<a href="/shopping/LoginServletShopping">ログアウト</a>
 </div>
