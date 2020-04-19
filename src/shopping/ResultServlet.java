@@ -9,45 +9,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginServlet
- */
-@WebServlet("/LoginServlet")
+@WebServlet("./shopping/ResultServlet")
 public class ResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public ResultServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		RequestDispatcher rd;
-		String userId = ((UserBean) request.getSession().getAttribute("user")).getId();
-		String itemId = request.getAttribute("item_id");
-		String itemQuantity = request.getAttribute("item_quantity");
+
+		String userId = ((UserBean) session.getAttribute("user")).getId();
+		String itemId = (String) request.getAttribute("item_id");
+		int itemQuantity = (Integer) request.getAttribute("item_quantity");
 
 		ItemDao dao = new ItemDao();
 
 		try {
-			dao.updateStock(itemId, Integer.parseInt(itemQuantity));
+			dao.updateStock(itemId, itemQuantity);
 			dao.updateHistory(userId, itemId, itemQuantity);
 		} catch (SQLException se) {
 			se.printStackTrace();
@@ -56,6 +45,7 @@ public class ResultServlet extends HttpServlet {
 		}
 
 		rd = request.getRequestDispatcher("./jsp/result.jsp");
+		rd.forward(request, response);
 
 	}
 
