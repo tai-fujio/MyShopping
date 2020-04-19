@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			UserBean userbean = user.getUserData(name, password);
 			if (userbean != null && userbean.getName() != null) {
 				session.setAttribute("user", userbean);
-				session.setAttribute("isLogged", true);
+				session.setAttribute("isLogged", "logged");
 				rd = request.getRequestDispatcher("./ShoppingListServlet");
 			} else {
 				rd = request.getRequestDispatcher("./jsp/error.jsp");
@@ -49,8 +49,8 @@ public class LoginServlet extends HttpServlet {
 			session.removeAttribute("user");
 			response.sendRedirect("./jsp/login.jsp");
 
-		} else if ("購入一覧".equals(btn)) {
-			rd = request.getRequestDispatcher("./BaughtListServlet");
+			//		} else if ("購入一覧".equals(btn)) {
+			//			rd = request.getRequestDispatcher("./BaughtListServlet");
 		}
 	}
 

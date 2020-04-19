@@ -47,7 +47,7 @@
 			</tr>
 			<% } %>
 		</table>
-		<input type="button"  value="戻る" onclick="location.href='./jsp/login.jsp'"/>
+		<input type="button" onclick="location.href='./jsp/login.jsp'" value="戻る">
 	</form>
 
 </body>

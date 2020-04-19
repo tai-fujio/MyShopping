@@ -17,19 +17,19 @@
 				<tbody>
 					<tr>
 						<th>ユーザー名:</th>
-						<td><input type="text" name="name" value="
-						<% if (user.getName() != null) {%>
-						<%=user.getName() %>
+						<%if (user != null && user.getId() != null) { %>
+						<td><input type="text" name="name" value="<%= user.getName() %>"/></td>
+						<% }else { %>
+						<td><input type="text" name="name" value=""/></td>
 						<% } %>
-						"/></td>
 						<th>パスワード:</th>
 						<td><input type="password" name="password"/></td>
 					</tr>
 				</tbody>
 			</table>
 				<input type="submit" name="submit" value="ログイン" />
-				<% if (("true").equals(session.getAttribute("isLogged"))) { %>
-					<input type ="submit" name="submit" value="" />
+				<% if (("logged").equals(session.getAttribute("isLogged"))) { %>
+					<input type ="submit" name="submit" value="ログアウト" />
 				<% }%>
 		</form>
 	</div>
