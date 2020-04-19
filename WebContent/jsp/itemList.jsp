@@ -1,17 +1,19 @@
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean scope="session" class="shopping.ItemBean" id="item"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="/MyShopping2/css/shopping.css" rel="stylesheet" type="text/css">
 
-<title></title>
+<title>My Shopping</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<% ArrayList<ItemBean> itemList = (ArrayList<ItemBean>) request.getAttribute("itemList");%>
-	<form action="./BuyItemServlet">
+	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)session.getAttribute("items");%>
+	<form action="./ConfirmServlet">
 		<table>
 			<tr>
 				<th>商品ID</th>
@@ -19,30 +21,31 @@
 				<th>価格</th>
 				<th>在庫数</th>
 				<th>数量</th>
+				<th></th>
 			</tr>
-			<% for(ItemBean bean : itemList) {%>
+			<% for(ItemBean itembean : itembeans) {%>
 			<tr>
-				<td><%= bean.getId() %></td>
-				<td><%= bean.getName() %></td>
-				<td><%= bean.getPrice() %></td>
-				<td><%= bean.getStock() %></td>
-				<td><%= bean.getQuantity() %></td>
-				<% if (bean.getQuantity() != 0) { %>
+				<td><%= itembean.getId() %></td>
+				<td><%= itembean.getName() %></td>
+				<td><%= itembean.getPrice() %></td>
+				<td><%= itembean.getStock() %></td>
+<%-- 				<td><%= itembean.getQuantity() %></td> --%>
 				<td>
-					<select name="<%= bean.getId() %>list">
-						<%for(int i=0; i<=bean.getQuantity();i++) {%>
+					<select name="<%= itembean.getId() %>list">
+						<%for(int i = 0; i <= itembean.getQuantity(); i++) {%>
 							<option value="<%=i %>"><%=i %></option>
 						<% } %>
 					</select>
 				</td>
+				<% if (itembean.getQuantity() != 0) { %>
 				<td>
-					<input type="submit" value="購入" name="<%=bean.getId()%>submit">
+					<input type="submit" value="購入" name="<%=itembean.getId()%>submit">
 				</td>
 				<% }else{ %>
-				<td></td>
 				<td>売り切れ</td>
 				<% } %>
 			</tr>
+			<% } %>
 		</table>
 	</form>
 
