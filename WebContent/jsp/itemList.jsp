@@ -14,7 +14,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)request.getAttribute("itemList");%>
-	<form action="./ConfirmServlet">
+	<form action="../ConfirmServlet">
 		<table>
 			<tr>
 				<th>商品ID</th>

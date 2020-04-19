@@ -13,7 +13,7 @@
 		<jsp:include page="header.jsp"/>
 		<h1>購入確認</h1>
 		<p>次の商品を購入しますか？</p>
-		<form action="./ResultServlet" method="post">
+		<form action="../ResultServlet" method="post">
 			<table>
 				<tbody>
 					<tr>
@@ -21,6 +21,7 @@
 						<th>商品名</th>
 						<th>価格</th>
 						<th>数量</th>
+						<th></th>
 					</tr>
 					<tr>
 						<td><jsp:getProperty property="id" name="item"/></td>
