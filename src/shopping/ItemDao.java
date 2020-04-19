@@ -12,7 +12,7 @@ public class ItemDao {
 	private ResultSet result = null;
 	private PreparedStatement prepared = null;
 
-	public ResultSet SelectHistory(String id) throws SQLException {
+	public ResultSet selectHistory(String id) throws SQLException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
@@ -28,10 +28,24 @@ public class ItemDao {
 
 	}
 
+	public ResultSet selectItem() throws SQLException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
+			prepared = connection
+					.prepareStatement("select id,name,price,quantity from item inner join on item.id = stock.item_id");
+			result = prepared.executeQuery();
+
+		} catch (ClassNotFoundException ce) {
+			ce.printStackTrace();
+		}
+		return result;
+	}
+
 	public void updateStock(String itemId, int quantity) throws SQLException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
 					"root",
 					"user2");
 			prepared = connection.prepareStatement("update stock quantity -= ? where item_id = ? ");
