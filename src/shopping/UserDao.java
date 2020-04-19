@@ -14,7 +14,7 @@ public class UserDao {
 
 	public ResultSet selectUser(String name, String password) throws SQLException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping", "root", "user2");
 			prepared = connection.prepareStatement("select id,name from user where name = ? and password = ?");
 			prepared.setString(1, name);

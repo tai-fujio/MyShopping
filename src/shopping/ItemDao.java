@@ -14,7 +14,7 @@ public class ItemDao {
 
 	public ResultSet selectHistory(String id) throws SQLException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
 			prepared = connection.prepareStatement(
 					"select history.item_id,history.quantity,item.name from history inner join user on history.user_id = ? inner join item on history.item_id = item.id;");
@@ -30,10 +30,11 @@ public class ItemDao {
 
 	public ResultSet selectItem() throws SQLException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
 			prepared = connection
-					.prepareStatement("select id,name,price,quantity from item inner join on item.id = stock.item_id");
+					.prepareStatement(
+							"select id,name,price,quantity from item inner join stock on item.id = stock.item_id");
 			result = prepared.executeQuery();
 
 		} catch (ClassNotFoundException ce) {
@@ -44,7 +45,7 @@ public class ItemDao {
 
 	public void updateStock(String itemId, int quantity) throws SQLException {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
 					"root",
 					"user2");
