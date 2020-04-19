@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean scope="session" id="user" class="shopping.UserBean">
+<jsp:useBean scope="session" id="user" class="shopping.UserBean"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +22,12 @@
 						<td><input type="password" name="password"/></td>
 					</tr>
 				</tbody>
-				<input type="submit" name="submit" value="ログイン">
-				<% if (("true").equals(session.getAttribute("isLogged"))) { %>
-					<input type ="submit" name="submit" value="ログアウト"/>
-				<% }%>
 			</table>
+				<input type="submit" name="submit" value="ログイン" />
+				<% if (("true").equals(session.getAttribute("isLogged"))) { %>
+					<input type ="submit" name="submit" value="" />
+				<% }%>
 		</form>
 	</div>
-
 </body>
 </html>
