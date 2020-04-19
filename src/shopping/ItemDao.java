@@ -17,7 +17,7 @@ public class ItemDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
 			prepared = connection.prepareStatement(
-					"select id,name,price from item where id = ?");
+					"select name,price from item where id = ?");
 			prepared.setString(1, id);
 			result = prepared.executeQuery();
 		} catch (ClassNotFoundException ce) {

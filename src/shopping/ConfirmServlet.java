@@ -1,6 +1,7 @@
 package shopping;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,7 +28,28 @@ public class ConfirmServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd;
-		System.out.println(request.getParameterNames());
+		Enumeration<String> params = request.getParameterNames();
+		String param = "";
+		String target = "";
+		String targetId = "";
+		String quantity = "";
+
+		while (params.hasMoreElements()) {
+			param = params.nextElement();
+			System.out.println(param);
+			if (param.matches(".*submit")) {
+				targetId = param.replace("submit", "");
+				target = param.replace("submit", "list");
+				break;
+			}
+		}
+		quantity = request.getParameter(target);
+		Item item = new Item();
+		ItemBean itembean = item.getItemId(targetId);
+
+		request.setAttribute("item", itembean);
+		request.setAttribute("quantity", quantity);
+
 		rd = request.getRequestDispatcher("./jsp/result.jsp");
 		rd.forward(request, response);
 	}
