@@ -27,4 +27,18 @@ public class ItemDao {
 		return result;
 
 	}
+
+	public void close() {
+		try {
+			if(connection != null) {
+				connection.close();
+			}
+			if(result != null) {
+				result.close();
+			}
+			if(prepared != null) {
+				prepared.close();
+			}
+		}
+	}
 }
