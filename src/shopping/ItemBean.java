@@ -7,11 +7,13 @@ public class ItemBean implements Serializable {
 	private String id;
 	private String name;
 	private int price;
+	private int quantity;
 
 	public ItemBean() {
 		this.id = "";
 		this.name = "";
 		this.price = 0;
+		this.quantity = 0;
 	}
 
 	public String getId() {
@@ -36,6 +38,14 @@ public class ItemBean implements Serializable {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }
