@@ -13,7 +13,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)request.getAttribute("itemList");%>
+	<% ArrayList<ItemBean> itemList = (ArrayList<ItemBean>)request.getAttribute("itemList");%>
 	<form action="../../MyShopping/ConfirmServlet">
 		<table>
 			<tr>
@@ -24,7 +24,7 @@
 				<th>数量</th>
 				<th></th>
 			</tr>
-			<% for(ItemBean itembean : itembeans) {%>
+			<% for(ItemBean itembean : itemList) {%>
 			<tr>
 				<td><%= itembean.getId() %></td>
 				<td><%= itembean.getName() %></td>

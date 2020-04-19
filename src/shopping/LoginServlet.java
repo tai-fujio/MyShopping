@@ -1,6 +1,7 @@
 package shopping;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,7 +40,11 @@ public class LoginServlet extends HttpServlet {
 			if (userbean != null && userbean.getName() != null) {
 				session.setAttribute("user", userbean);
 				session.setAttribute("isLogged", "logged");
-				rd = request.getRequestDispatcher("./ShoppingListServlet");
+				Item item = new Item();
+				ArrayList<ItemBean> itembeans = item.getItemList();
+				request.setAttribute("itemList", itembeans);
+
+				rd = request.getRequestDispatcher("./jsp/itemList.jsp");
 			} else {
 				rd = request.getRequestDispatcher("./jsp/error.jsp");
 			}
