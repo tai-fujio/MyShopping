@@ -47,7 +47,7 @@ public class ResultServlet extends HttpServlet {
 		ItemDao dao = new ItemDao();
 
 		try {
-			dao.updateItem(itemId, Integer.parseInt(itemQuantity));
+			dao.updateStock(itemId, Integer.parseInt(itemQuantity));
 			dao.updateHistory(userId, itemId, itemQuantity);
 		} catch (SQLException se) {
 			se.printStackTrace();
