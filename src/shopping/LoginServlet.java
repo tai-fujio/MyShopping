@@ -45,10 +45,10 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher rd;
 
 		if ("ログイン".equals(btn)) {
-			String id = request.getParameter("id");
+			String name = request.getParameter("name");
 			String password = request.getParameter("password");
 			User user = new User();
-			UserBean userbean = user.getUserData(id, password);
+			UserBean userbean = user.getUserData(name, password);
 
 			if (userbean != null) {
 				session.setAttribute("user", userbean);

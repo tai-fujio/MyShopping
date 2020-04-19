@@ -16,8 +16,8 @@
 			<table>
 				<tbody>
 					<tr>
-						<th>ログインID:</th>
-						<td><input type="text" name="id" value="<%=user.getId() %>"/></td>
+						<th>ユーザー名:</th>
+						<td><input type="text" name="name" value="<%=user.getName() %>"/></td>
 						<th>パスワード:</th>
 						<td><input type="password" name="password"/></td>
 					</tr>
