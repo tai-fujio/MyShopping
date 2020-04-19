@@ -29,8 +29,7 @@
 				<td><%= itembean.getId() %></td>
 				<td><%= itembean.getName() %></td>
 				<td><%= itembean.getPrice() %></td>
-				<td><%= itembean.getStock() %></td>
-<%-- 				<td><%= itembean.getQuantity() %></td> --%>
+				<td><%= itembean.getQuantity() %></td>
 				<td>
 					<select name="<%= itembean.getId() %>list">
 						<%for(int i = 0; i <= itembean.getQuantity(); i++) {%>
