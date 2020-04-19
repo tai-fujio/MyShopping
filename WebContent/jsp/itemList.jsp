@@ -14,7 +14,7 @@
 <body>
 	<jsp:include page="header.jsp"/>
 	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)request.getAttribute("itemList");%>
-	<form action="../ConfirmServlet">
+	<form action="../../MyShopping/ConfirmServlet">
 		<table>
 			<tr>
 				<th>商品ID</th>
@@ -47,6 +47,7 @@
 			</tr>
 			<% } %>
 		</table>
+		<input type="button"  value="戻る" onclick="location.href='./jsp/login.jsp'"/>
 	</form>
 
 </body>

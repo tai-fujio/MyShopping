@@ -13,7 +13,7 @@
 	<p>ユーザーは存在しません<p>
 	<p>入力に誤りがあります<p>
 	<form>
-		<input type="button" value="戻る" onclick="location.href='/jsp/login.jsp'">
+		<input type="button" value="戻る" onclick="location.href='./jsp/login.jsp'">
 	</form>
 </body>
 </html>

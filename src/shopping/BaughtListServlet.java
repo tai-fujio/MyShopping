@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/shopping/BaughtListServlet")
+@WebServlet("/BaughtListServlet")
 public class BaughtListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

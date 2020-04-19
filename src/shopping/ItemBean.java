@@ -10,8 +10,8 @@ public class ItemBean implements Serializable {
 	private int quantity;
 
 	public ItemBean() {
-		this.id = "";
-		this.name = "";
+		this.id = null;
+		this.name = null;
 		this.price = 0;
 		this.quantity = 0;
 	}

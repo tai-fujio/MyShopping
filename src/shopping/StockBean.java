@@ -8,7 +8,7 @@ public class StockBean implements Serializable {
 	private int quantity;
 
 	public StockBean() {
-		this.item_id = "";
+		this.item_id = null;
 		this.quantity = 0;
 	}
 

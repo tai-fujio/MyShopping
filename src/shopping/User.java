@@ -13,9 +13,11 @@ public class User {
 		try {
 			dao = new UserDao();
 			result = dao.selectUser(name, password);
-			userbean = new UserBean();
-			userbean.setId(result.getString("id"));
-			userbean.setName(result.getString("name"));
+			while (result.next()) {
+				userbean = new UserBean();
+				userbean.setId(result.getString("id"));
+				userbean.setName(result.getString("name"));
+			}
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} finally {

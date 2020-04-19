@@ -12,7 +12,7 @@
 	<h1>購入結果</h1>
 	<p>ご購入ありがとうございます</p>
 	<img src="/MyShopping2/image/thank_you.jpg" width="100" height="100"/>
-	<form action="../ShoppingServlet" method="post">
+	<form action="ShoppingServlet" method="post">
 		<input type="submit" value="戻る">
 	</form>
 </body>

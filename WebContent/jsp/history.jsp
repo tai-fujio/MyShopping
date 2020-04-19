@@ -30,7 +30,7 @@
 			<% } %>
 		</tbody>
 	</table>
-		<form action="./shopping/ShoppingListServlet" method="post">
+		<form action="../../MyShopping/ShoppingListServlet" method="post">
 			<input type="submit" value="商品一覧に戻る">
 		</form>
 </body>

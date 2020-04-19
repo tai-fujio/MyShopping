@@ -13,7 +13,7 @@
 		<jsp:include page="header.jsp"/>
 		<h1>購入確認</h1>
 		<p>次の商品を購入しますか？</p>
-		<form action="../ResultServlet" method="post">
+		<form action="../../MyShopping/ResultServlet" method="post">
 			<table>
 				<tbody>
 					<tr>
@@ -36,6 +36,8 @@
 					</tr>
 				</tbody>
 			</table>
+			<input type="button"  value="戻る" onclick="location.href='./itemList.jsp'"/>
+
 		</form>
 	</body>
 </html>

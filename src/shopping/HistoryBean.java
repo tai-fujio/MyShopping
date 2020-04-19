@@ -9,9 +9,9 @@ public class HistoryBean implements Serializable {
 	private int quantity;
 
 	public HistoryBean() {
-		this.itemName = "";
-		this.userId = "";
-		this.itemId = "";
+		this.itemName = null;
+		this.userId = null;
+		this.itemId = null;
 		this.quantity = 0;
 	}
 

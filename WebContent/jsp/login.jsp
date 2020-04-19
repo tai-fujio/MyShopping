@@ -5,19 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="/MyShopping2/css/shopping.css" rel="stylesheet" type="text/css">
+<link href="/MyShopping/css/shopping.css" rel="stylesheet" type="text/css">
 <title>My Shopping</title>
 </head>
 <body>
 	<div>
 		<h1>ようこそ My Shopping へ</h1>
 		<p>IDとパスワードを入力してください</p>
-		<form action ="../LoginServlet" method="post">
+		<form action ="../../MyShopping/LoginServlet" method="post">
 			<table>
 				<tbody>
 					<tr>
 						<th>ユーザー名:</th>
-						<td><input type="text" name="name" value="<%=user.getName() %>"/></td>
+						<td><input type="text" name="name" value="
+						<% if (user.getName() != null) {%>
+						<%=user.getName() %>
+						<% } %>
+						"/></td>
 						<th>パスワード:</th>
 						<td><input type="password" name="password"/></td>
 					</tr>

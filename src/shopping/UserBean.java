@@ -10,9 +10,9 @@ public class UserBean implements Serializable {
 	private int age;
 
 	public UserBean() {
-		this.id = "";
-		this.password = "";
-		this.name = "";
+		this.id = null;
+		this.password = null;
+		this.name = null;
 		this.age = 0;
 	}
 
