@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="shopping.HistoryBean" %>
 <%@ page import="java.util.ArrayList"  %>
-<<jsp:useBean id="user" scope="session" class="shopping.UserBean"/>
+<jsp:useBean id="user" scope="session" class="shopping.UserBean"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,16 +22,16 @@
 				<th>購入数</th>
 			</tr>
 			<% for(HistoryBean historybean : historyList) {%>
-				<tr>
-					<td><%= historybean.getItemId() %></td>
-					<td><%= historybean.getItemName() %></td>
-					<td><%= historybean.getQuantity() %></td>
-				</tr>
+			<tr>
+				<td><%= historybean.getItemId() %></td>
+				<td><%= historybean.getItemName() %></td>
+				<td><%= historybean.getQuantity() %></td>
+			</tr>
 			<% } %>
 		</tbody>
-		<form action="./shopping/ShoppingListServlet">
-			<input type="sumbmit" value="商品一覧に戻る">
-		</form>
 	</table>
+		<form action="./shopping/ShoppingListServlet" method="post">
+			<input type="submit" value="商品一覧に戻る">
+		</form>
 </body>
 </html>
