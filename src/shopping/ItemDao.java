@@ -34,7 +34,7 @@ public class ItemDao {
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
 					"root",
 					"user2");
-			prepared = connection.prepareStatement("update stock quantity = ? where item_id = ? ");
+			prepared = connection.prepareStatement("update stock quantity -= ? where item_id = ? ");
 			prepared.setInt(1, quantity);
 			prepared.setString(2, itemId);
 			prepared.executeUpdate();
@@ -45,14 +45,14 @@ public class ItemDao {
 
 	}
 
-	public void updateHistory(String id, String itemId, int quantity) throws SQLException {
+	public void updateHistory(String userid, String itemId, int quantity) throws SQLException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
 					"root",
 					"user2");
-			prepared = connection.prepareStatement("insert into history values(?, ?, ?)");
-			prepared.setString(1, id);
+			prepared = connection.prepareStatement("insert into history (user_id, item_id, quantity) values(?, ?, ?)");
+			prepared.setString(1, userid);
 			prepared.setString(2, itemId);
 			prepared.setInt(3, quantity);
 			prepared.executeUpdate();
