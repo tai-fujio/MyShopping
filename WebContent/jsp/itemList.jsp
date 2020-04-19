@@ -1,7 +1,8 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean scope="session" class="shopping.ItemBean" id="item"/>
+<%@ page import ="shopping.ItemBean" %>
+<jsp:useBean scope="request" class="shopping.ItemBean" id="item"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)session.getAttribute("items");%>
+	<% ArrayList<ItemBean> itembeans = (ArrayList<ItemBean>)request.getAttribute("itemList");%>
 	<form action="./ConfirmServlet">
 		<table>
 			<tr>
