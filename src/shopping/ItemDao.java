@@ -12,6 +12,20 @@ public class ItemDao {
 	private ResultSet result = null;
 	private PreparedStatement prepared = null;
 
+	public ResultSet selectItem(String id) throws SQLException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Shopping", "root", "user2");
+			prepared = connection.prepareStatement(
+					"select id,name,price from item where id = ?");
+			prepared.setString(1, id);
+			result = prepared.executeQuery();
+		} catch (ClassNotFoundException ce) {
+			ce.printStackTrace();
+		}
+		return result;
+	}
+
 	public ResultSet selectHistory(String id) throws SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
