@@ -16,7 +16,7 @@ public class UserDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping", "root", "user2");
-			prepared = connection.prepareStatement("select name from user where name = ? and password = ?");
+			prepared = connection.prepareStatement("select name,id from user where name = ? and password = ?");
 			result = prepared.executeQuery();
 		} catch (ClassNotFoundException ce) {
 			ce.printStackTrace();
