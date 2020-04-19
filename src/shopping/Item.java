@@ -6,6 +6,30 @@ import java.util.ArrayList;
 
 public class Item {
 
+	public ArrayList<ItemBean> getItemId(String id) {
+		ItemDao dao = null;
+		ResultSet result = null;
+		ArrayList<ItemBean> itembeans = new ArrayList<>();
+
+		try {
+			dao = new ItemDao();
+			result = dao.selectItem(id);
+
+			while (result.next()) {
+				ItemBean itembean = new ItemBean();
+				itembean.setId(result.getString("id"));
+				itembean.setName(result.getString("name"));
+				itembean.setPrice(result.getInt("price"));
+				itembeans.add(itembean);
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			dao.close();
+		}
+		return itembeans;
+	}
+
 	public ArrayList<HistoryBean> getHistoryData(String id) {
 		ArrayList<HistoryBean> historyList = new ArrayList<>();
 		ItemDao dao = null;
