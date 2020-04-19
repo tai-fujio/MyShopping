@@ -1,7 +1,9 @@
 package shopping;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,8 +39,24 @@ public class ResultServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd;
+		String userId = ((UserBean) request.getSession().getAttribute("user")).getId();
+		String itemId = request.getAttribute("item_id");
+		String itemQuantity = request.getAttribute("item_quantity");
+
+		ItemDao dao = new ItemDao();
+
+		try {
+			dao.updateItem(itemId, Integer.parseInt(itemQuantity));
+			dao.updateHistory(userId, itemId, itemQuantity);
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			dao.close();
+		}
+
+		rd = request.getRequestDispatcher("./jsp/result.jsp");
+
 	}
 
 }
