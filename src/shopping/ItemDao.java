@@ -28,17 +28,54 @@ public class ItemDao {
 
 	}
 
+	public void updateStock(String itemId, int quantity) throws SQLException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
+					"root",
+					"user2");
+			prepared = connection.prepareStatement("update stock quantity = ? where item_id = ? ");
+			prepared.setInt(1, quantity);
+			prepared.setString(2, itemId);
+			prepared.executeUpdate();
+
+		} catch (ClassNotFoundException ce) {
+			ce.printStackTrace();
+		}
+
+	}
+
+	public void updateHistory(String id, String itemId, int quantity) throws SQLException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample",
+					"root",
+					"user2");
+			prepared = connection.prepareStatement("insert into history values(?, ?, ?)");
+			prepared.setString(1, id);
+			prepared.setString(2, itemId);
+			prepared.setInt(3, quantity);
+			prepared.executeUpdate();
+
+		} catch (ClassNotFoundException ce) {
+			ce.printStackTrace();
+		}
+
+	}
+
 	public void close() {
 		try {
-			if(connection != null) {
+			if (connection != null) {
 				connection.close();
 			}
-			if(result != null) {
+			if (result != null) {
 				result.close();
 			}
-			if(prepared != null) {
+			if (prepared != null) {
 				prepared.close();
 			}
+		} catch (SQLException se) {
+			se.printStackTrace();
 		}
 	}
 }
